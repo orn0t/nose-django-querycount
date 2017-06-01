@@ -87,8 +87,7 @@ class DjangoQueryCountPlugin(Plugin):
         """
         total = 0
         output_stream = self.output_stream or self.config.stream
-        if str is not unicode:
-            output_stream = codecs.getwriter('utf-8')(output_stream)
+
         # column with calculation
         first_col_width = len(max(self.data.keys() or ['Tests'], key=len))
         total_width = first_col_width + sum(self.data_columns.values())
